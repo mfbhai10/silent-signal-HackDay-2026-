@@ -2,149 +2,148 @@ Silent Signal - README
 
 Overview
 
-Silent Signal is an emergency and emotion communication app designed for people who cannot speak, type, or communicate verbally due to various circumstances (e.g., speech disabilities, stroke patients, autism, or temporary voice loss). The app allows users to signal their emotional or emergency state instantly using emojis, colors, and light without the need for words or text.
-
-This system is designed to minimize cognitive load during emergencies, providing a fast, safe, and intuitive way to communicate when every second counts.
+Silent Signal is an innovative emergency and emotion communication system designed to help people communicate without speaking or typing. This app is particularly helpful for individuals who cannot speak due to disabilities, illness, or emergency situations. By using intuitive emojis, colors, and light signals, Silent Signal allows users to quickly send a message to their trusted contacts in moments of distress, without having to read or type anything.
 
 ⸻
 
 Features
-	•	Silent, Non-Verbal Communication: Users can send signals using only emojis, colors, and light without speaking or typing.
-	•	Emergency and Emotional Signals: Predefined emojis represent key states (e.g., 🆘 I need help, ❤️ I’m safe, 😨 I’m scared).
-	•	Haptic Feedback: Vibration patterns ensure users know their signal has been sent or received.
-	•	Real-Time Communication: Trusted contacts receive signals via push notifications, color changes, and vibrations.
-	•	Simple and Intuitive UI: No text, no learning curve. Everything can be done with a single tap, making it easy for children, elderly users, and people with disabilities to use.
+	•	Non-Verbal Communication: Send emotional and emergency signals using emojis, colors, and light without typing or speaking.
+	•	Simple Interface: No learning curve — one tap = one meaning.
+	•	Real-Time Notifications: Trusted contacts receive your signals instantly through push notifications.
+	•	Color & Emoji Mapping: Different colors and emojis represent specific emotional states or emergency situations.
+	•	Haptic Feedback: Each signal is accompanied by a distinct vibration pattern to ensure the user knows the signal has been sent.
+	•	No Text: Users interact with simple, intuitive signals (emojis and colors) to communicate feelings like fear, distress, safety, and help.
+
+⸻
+
+Technologies Used
+	•	React.js: For building the front-end UI of the application.
+	•	TypeScript: For type safety and improved development experience in JavaScript.
+	•	Supabase: To handle user authentication, database management, and real-time notifications.
+	•	Firebase: For sending push notifications to users when a signal is received.
+	•	Haptic Feedback: Using the React Native Haptic Feedback library for vibration feedback.
 
 ⸻
 
 Core Design Principles
-	•	No typing
-	•	No speaking
-	•	No learning curve
-	•	One action = One meaning
-	•	Emotion first, interface second
-
-“In danger, cognitive load must be zero.”
-
-This principle is the heart of Silent Signal — the app is designed to ensure that when a user is in trouble, they can act immediately, without needing to think or read.
+	•	No typing: Instant communication without the need to type.
+	•	No speaking: Designed for situations where verbal communication isn’t possible.
+	•	No learning curve: The interface is designed to be intuitive and accessible for everyone.
+	•	One action = one meaning: Users can send signals instantly with a single tap.
+	•	Emotion first, interface second: Focuses on the emotional state of the user rather than complex features or options.
 
 ⸻
 
 User Flow
 
 1. Disguised Home Screen
-	•	The home screen looks like a normal app (weather, gallery, music player) to avoid drawing attention.
-	•	Users access the Signal Mode through a long press, triple tap, or swipe gesture.
-	•	Purpose: To keep the user safe before they even ask for help.
+	•	The app mimics a normal app (e.g., weather, music) for privacy.
+	•	To access the signal screen, the user uses a secret gesture (e.g., long press or swipe).
 
-2. Signal Selection Screen
-	•	A 2x2 grid displays large touch zones with emojis representing emotions or states:
-	•	🆘 = I need help
-	•	😨 = I’m scared
-	•	💔 = I’m in distress
-	•	❤️ = I’m safe
-	•	The user taps on an emoji, which immediately triggers:
-	•	Color change on the screen (e.g., red for danger, green for safety).
-	•	Vibration and/or light pulse to confirm the signal.
-	•	No text labels, just colors, emojis, and haptic feedback.
+2. Signal Selection
+	•	The user taps on an emoji (e.g., 🆘 I need help, 😨 I’m scared, ❤️ I’m safe).
+	•	Each emoji triggers a color change and a distinct vibration pattern to confirm the action.
 
 3. Signal Sent Confirmation
-	•	Once the user taps the emoji, the screen changes to a full-color wash (e.g., yellow for help, red for distress) with a soft pulse animation and subtle vibration.
-	•	No text appears; users intuitively know their signal has been sent.
+	•	After sending the signal, the screen displays a color wash (e.g., red for danger, yellow for help).
+	•	Gentle animations and vibration confirm that the signal has been successfully sent.
 
 4. Receiver View
-	•	Trusted contacts receive the signal as a color wash, a central emoji, and a motion pulse on their screen.
-	•	The app uses distinct vibration patterns to indicate urgency (e.g., a repeating pulse for urgent help, gentle vibration for safety).
-	•	No text is needed to communicate the emotional intent.
+	•	Trusted contacts receive the signal with color, emoji, and motion pulse to understand the urgency or emotional state instantly.
 
 ⸻
 
 Installation
 
 Prerequisites
-	•	.
-	•	Xcode (for iOS) or Android Studio (for Android).
-	•	React Native or Flutter installed.
+	•	Node.js (for ReactJS and TypeScript setup)
+	•	Supabase account (for authentication and real-time database)
+	•	Firebase account (for sending push notifications)
 
 Steps to Install
 	1.	Clone the Repository
 
-git clone https://github.com/yourusername/silent-signal.git
-cd silent-signal
+git clone https://github.com/mfbhai10/silent-signal-HackDay-2026-
+cd silent-signal-HackDay-2026-
 
 
 	2.	Install Dependencies
-For React Native:
 
 npm install
 
-For Flutter:
 
-flutter pub get
+	3.	Set Up Supabase
+	•	Go to Supabase￼ and create a new project.
+	•	Create a table for user authentication and real-time signals.
+	•	Add your Supabase URL and API key to your app’s environment variables.
+	4.	Set Up Firebase
+	•	Create a Firebase Project on Firebase Console￼.
+	•	Set up Firebase Cloud Messaging for push notifications.
+	•	Add your Firebase API key and project credentials to the app’s environment variables.
+	5.	Run the App Locally
+For development:
+
+npm start
 
 
-	3.	Run the App
-	•	For iOS:
+	6.	Build for Production
+When you’re ready to deploy:
 
-npx react-native run-ios
-
-	•	For Android:
-
-npx react-native run-android
+npm run build
 
 
-	4.	Configure Firebase for Push Notifications (Optional)
-Follow the instructions to set up Firebase Cloud Messaging (FCM) for real-time notifications.
-
-⸻
-
-Tech Stack
-	•	React Native or Flutter for cross-platform development.
-	•	Firebase for real-time database and notifications.
-	•	TensorFlow.js or other emotion recognition libraries for detecting user intent based on biometric data (optional).
-	•	React Native Haptic Feedback and React Native Animatable for animations and vibration effects.
 
 ⸻
 
-Testing & Validation
-	•	Usability Testing: Test the app with real users (especially children, elderly people, or those with disabilities).
-	•	Emergency Simulation: Simulate emergency scenarios where users cannot speak, and check if the app allows them to send signals instantly.
-	•	Receiver Testing: Ensure that the trusted contacts receive signals clearly and understand them without text.
+Directory Structure
+
+/silent-signal
+|-- /src
+|   |-- /components      # React components for the UI
+|   |-- /services       # Logic for interacting with Supabase and Firebase
+|   |-- /assets         # Images, icons, and other static files
+|   |-- /hooks          # Custom React hooks
+|   |-- /utils          # Utility functions (e.g., color-to-emoji mapping)
+|-- .env                # Environment variables (Supabase, Firebase keys)
+|-- package.json        # Project dependencies and scripts
+|-- README.md           # This README file
+
 
 ⸻
 
-Contributions
+How to Use
+	1.	Open the App:
+When you open the app, the home screen will look like a typical app (e.g., weather or music).
+	2.	Activate Silent Mode:
+Tap and hold, swipe, or use a secret gesture to unlock the Signal Mode.
+	3.	Select a Signal:
+Choose from the available emojis that represent your emotional state or emergency situation.
+	4.	Confirmation:
+The screen will change color, and the app will provide vibration feedback to confirm the signal was sent.
+	5.	Receiver Notification:
+Trusted contacts will see the signal as a color wash and emoji, with vibration feedback for immediate understanding.
 
-We welcome contributions to improve Silent Signal. Here’s how you can contribute:
-	1.	Fork the repo
-	2.	Clone the repo to your local machine
-	3.	Make your changes
-	4.	Create a pull request
+⸻
+
+Future Improvements
+	•	Wearable Device Support: Add integration with smartwatches or other wearable devices for enhanced haptic feedback.
+	•	Multilingual Support: Though we rely on non-verbal communication, adding language support would increase accessibility.
+	•	Customizable Emojis/Signals: Allow users to create and use custom signals based on their needs.
 
 ⸻
 
 License
 
-This project is licensed under the MIT License — see the LICENSE￼ file for details.
-
-⸻
-
-Future Improvements
-
-If we had more time, here’s what we would add:
-	•	Wearable Device Support: Integration with smartwatches or wearable haptic feedback devices to enhance the experience.
-	•	Voice Assistant Integration: For users who can speak but need assistance, voice commands could trigger certain signals.
-	•	Expanded Emoji/Color Signals: Allow users to create custom signals for more specific needs or emotions.
-	•	Multilingual Support: Although Silent Signal uses universal color and emoji-based communication, multilingual support for emergency messages can be added for further accessibility.
+This project is licensed under the MIT License. See the LICENSE￼ file for more information.
 
 ⸻
 
 Contact
 
-For questions or feedback, feel free to reach out to:
-	•	Email: support@silentsignalapp.com￼
+For questions or feedback, feel free to reach out:
+	•	Email: mutasimfuadrafi10@gmail.com￼
 	•	GitHub: Silent Signal GitHub Repository￼
 
 ⸻
 
-Silent Signal: A New Way to Speak Without Words.
+Silent Signal: Helping You Communicate in Silence, When Every Second Counts.
