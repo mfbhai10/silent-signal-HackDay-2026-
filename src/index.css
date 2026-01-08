@@ -1,0 +1,210 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 90%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 20% 90%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 20% 90%;
+
+    --primary: 210 60% 50%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 20% 85%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 210 15% 55%;
+
+    --accent: 220 15% 22%;
+    --accent-foreground: 210 20% 90%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 210 60% 50%;
+
+    --radius: 1rem;
+
+    /* Signal Colors - Emotional Palette */
+    --signal-danger: 0 72% 50%;
+    --signal-danger-glow: 0 72% 60%;
+    --signal-help: 45 95% 55%;
+    --signal-help-glow: 45 95% 65%;
+    --signal-fear: 210 80% 55%;
+    --signal-fear-glow: 210 80% 65%;
+    --signal-safe: 145 65% 45%;
+    --signal-safe-glow: 145 65% 55%;
+
+    /* Sidebar defaults */
+    --sidebar-background: 220 18% 13%;
+    --sidebar-foreground: 210 20% 85%;
+    --sidebar-primary: 210 60% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 60% 50%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 90%;
+    --card: 220 18% 13%;
+    --card-foreground: 210 20% 90%;
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 20% 90%;
+    --primary: 210 60% 50%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 210 20% 85%;
+    --muted: 220 15% 20%;
+    --muted-foreground: 210 15% 55%;
+    --accent: 220 15% 22%;
+    --accent-foreground: 210 20% 90%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 210 60% 50%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+}
+
+@layer utilities {
+
+  @keyframes breathing-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.9;
+    }
+    50% {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+  }
+
+  @keyframes signal-glow {
+    0%, 100% {
+      box-shadow: 0 0 40px 10px currentColor;
+      opacity: 0.8;
+    }
+    50% {
+      box-shadow: 0 0 80px 20px currentColor;
+      opacity: 1;
+    }
+  }
+
+  @keyframes soft-pulse {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes emoji-pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes color-wash {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-breathing {
+    animation: breathing-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-signal-glow {
+    animation: signal-glow 2s ease-in-out infinite;
+  }
+
+  .animate-soft-pulse {
+    animation: soft-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-emoji-pulse {
+    animation: emoji-pulse 2s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.4s ease-out forwards;
+  }
+
+  .animate-color-wash {
+    animation: color-wash 0.3s ease-out forwards;
+  }
+
+  /* Signal background colors */
+  .bg-signal-danger {
+    background: linear-gradient(135deg, hsl(var(--signal-danger)), hsl(var(--signal-danger-glow)));
+  }
+
+  .bg-signal-help {
+    background: linear-gradient(135deg, hsl(var(--signal-help)), hsl(var(--signal-help-glow)));
+  }
+
+  .bg-signal-fear {
+    background: linear-gradient(135deg, hsl(var(--signal-fear)), hsl(var(--signal-fear-glow)));
+  }
+
+  .bg-signal-safe {
+    background: linear-gradient(135deg, hsl(var(--signal-safe)), hsl(var(--signal-safe-glow)));
+  }
+
+  .touch-target {
+    min-height: 80px;
+    min-width: 80px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .touch-target-xl {
+    min-height: 120px;
+    min-width: 120px;
+  }
+}
