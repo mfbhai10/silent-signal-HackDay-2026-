@@ -1,36 +1,14 @@
 import { useEffect } from "react";
 import { SignalType } from "./SignalSelection";
+import { SIGNAL_MAP } from "@/lib/signals";
 
 interface ReceiverViewProps {
   signal: SignalType;
   onDismiss: () => void;
 }
 
-const signalConfig = {
-  danger: {
-    emoji: "🆘",
-    bgClass: "bg-signal-danger",
-    vibrationPattern: [200, 100, 200, 100, 200],
-  },
-  scared: {
-    emoji: "😨",
-    bgClass: "bg-signal-fear",
-    vibrationPattern: [150, 100, 150],
-  },
-  distress: {
-    emoji: "💔",
-    bgClass: "bg-signal-help",
-    vibrationPattern: [100, 80, 100, 80, 100],
-  },
-  safe: {
-    emoji: "❤️",
-    bgClass: "bg-signal-safe",
-    vibrationPattern: [100, 50, 100],
-  },
-};
-
 const ReceiverView = ({ signal, onDismiss }: ReceiverViewProps) => {
-  const config = signalConfig[signal];
+  const config = SIGNAL_MAP[signal];
 
   useEffect(() => {
     if (navigator.vibrate) {
@@ -55,8 +33,9 @@ const ReceiverView = ({ signal, onDismiss }: ReceiverViewProps) => {
         cursor-pointer
       `}
       onClick={onDismiss}
+      role="button"
+      aria-label="Tap to dismiss alert"
     >
-
       <div className="animate-breathing">
         <span className="text-[140px] select-none animate-emoji-pulse drop-shadow-2xl">
           {config.emoji}
@@ -64,9 +43,8 @@ const ReceiverView = ({ signal, onDismiss }: ReceiverViewProps) => {
       </div>
 
       <div className="mt-8 bg-white/20 backdrop-blur-sm rounded-2xl px-6 py-3">
-        <p className="text-white text-lg font-medium">Your Alert sent</p>
+        <p className="text-white text-lg font-medium">Your alert has been sent</p>
       </div>
-
 
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
         <div
@@ -83,7 +61,6 @@ const ReceiverView = ({ signal, onDismiss }: ReceiverViewProps) => {
         />
       </div>
 
- 
       <div className="absolute bottom-12 text-white/40 text-sm animate-soft-pulse">
         Tap anywhere to dismiss
       </div>

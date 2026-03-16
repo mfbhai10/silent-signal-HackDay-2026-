@@ -1,20 +1,7 @@
 import { useEffect } from 'react';
+import { SIGNALS } from '@/lib/signals';
 
 export type SignalType = 'danger' | 'scared' | 'distress' | 'safe';
-
-interface Signal {
-  type: SignalType;
-  emoji: string;
-  bgClass: string;
-  hoverClass: string;
-}
-
-const signals: Signal[] = [
-  { type: 'danger', emoji: '🆘', bgClass: 'bg-signal-danger', hoverClass: 'hover:shadow-[0_0_60px_hsl(0,72%,50%,0.5)]' },
-  { type: 'scared', emoji: '😨', bgClass: 'bg-signal-fear', hoverClass: 'hover:shadow-[0_0_60px_hsl(210,80%,55%,0.5)]' },
-  { type: 'distress', emoji: '💔', bgClass: 'bg-signal-help', hoverClass: 'hover:shadow-[0_0_60px_hsl(45,95%,55%,0.5)]' },
-  { type: 'safe', emoji: '❤️', bgClass: 'bg-signal-safe', hoverClass: 'hover:shadow-[0_0_60px_hsl(145,65%,45%,0.5)]' },
-];
 
 interface SignalSelectionProps {
   onSelectSignal: (signal: SignalType) => void;
@@ -48,7 +35,7 @@ const SignalSelection = ({ onSelectSignal, onBack }: SignalSelectionProps) => {
       </button>
 
       <div className="flex-1 grid grid-cols-2 gap-4 py-8">
-        {signals.map((signal, index) => (
+        {SIGNALS.map((signal, index) => (
           <button
             key={signal.type}
             onClick={() => handleSignalSelect(signal.type)}
@@ -66,7 +53,7 @@ const SignalSelection = ({ onSelectSignal, onBack }: SignalSelectionProps) => {
               animationDelay: `${index * 0.05}s`,
               minHeight: '160px'
             }}
-            aria-label={`Signal ${signal.type}`}
+            aria-label={signal.ariaLabel}
           >
             <span 
               className="text-7xl select-none animate-soft-pulse"
