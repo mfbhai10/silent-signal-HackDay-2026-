@@ -55,27 +55,7 @@
     --sidebar-ring: 210 60% 50%;
   }
 
-  .dark {
-    --background: 220 20% 10%;
-    --foreground: 210 20% 90%;
-    --card: 220 18% 13%;
-    --card-foreground: 210 20% 90%;
-    --popover: 220 18% 13%;
-    --popover-foreground: 210 20% 90%;
-    --primary: 210 60% 50%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 15% 18%;
-    --secondary-foreground: 210 20% 85%;
-    --muted: 220 15% 20%;
-    --muted-foreground: 210 15% 55%;
-    --accent: 220 15% 22%;
-    --accent-foreground: 210 20% 90%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 220 15% 20%;
-    --input: 220 15% 20%;
-    --ring: 210 60% 50%;
-  }
+  /* dark mode values are the same as :root since this app is dark-only */
 }
 
 @layer base {
@@ -206,5 +186,8 @@
   .touch-target-xl {
     min-height: 120px;
     min-width: 120px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
   }
 }
